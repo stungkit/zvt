@@ -16,7 +16,7 @@ class EMStockRecorder(Recorder):
 
     def run(self):
         for exchange in [Exchange.sh, Exchange.sz, Exchange.bj]:
-            df = em_api.get_tradable_list(entity_type="stock", exchange=exchange, limit=100)
+            df = em_api.get_tradable_list(entity_type="stock", exchange=exchange)
 
             if pd_is_not_null(df):
                 df["total_cap"] = df["total_cap"].fillna(0)
